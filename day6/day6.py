@@ -25,7 +25,7 @@ def get_sum_of_group(group_answers_list):
     return all_answers
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day6/input.txt"
+path = "day6/input.txt"
 file_data = get_file_data(path)
 group = []
 sum = 0

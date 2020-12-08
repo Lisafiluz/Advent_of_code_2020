@@ -9,7 +9,7 @@ def get_file_data(path):
 
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day7/input.txt"
+path = "day7/input.txt"
 file_data = get_file_data(path)
 count = 0
 sum_bugs = 0

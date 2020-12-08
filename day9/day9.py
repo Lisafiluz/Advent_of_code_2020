@@ -8,5 +8,5 @@ def get_file_data(path):
 
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day8/input.txt"
+path = "day9/example.txt"
 file_data = get_file_data(path)

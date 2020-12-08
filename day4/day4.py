@@ -70,7 +70,7 @@ def get_valid_passports(passports):
     return count
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day4/input.txt"
+path = "day4/input.txt"
 
 passports = get_pasports(path)
 valid = get_valid_passports(passports)

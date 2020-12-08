@@ -40,7 +40,7 @@ def get_column_id(end):
 
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day5/input.txt"
+path = "day5/input.txt"
 file_data = get_file_data(path)
 
 max_id = 0

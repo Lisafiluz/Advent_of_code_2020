@@ -21,7 +21,7 @@ def is_valid_password_part2(line):
         return True
     return False
 
-with open('/Users/liluz/Python/Advent_Code_2020/day2/input.txt', 'r') as file_handler:
+with open('day2/input.txt', 'r') as file_handler:
     lines = file_handler.readlines()
 
 valid_passwords = 0

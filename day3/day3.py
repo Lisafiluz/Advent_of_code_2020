@@ -20,7 +20,7 @@ def get_encounter_trees(map, steps_right, steps_below):
     return trees
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day3/input.txt"
+path = "day3/input.txt"
 map = get_map(path)
 trees1 = get_encounter_trees(map, 1, 1)
 trees2 = get_encounter_trees(map, 3, 1)

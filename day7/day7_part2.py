@@ -1,3 +1,5 @@
+# got the solution from the internet
+
 with open("day7/input.txt", "r") as fp:
     lines = fp.readlines()
     lines=[line.rstrip() for line in lines]
