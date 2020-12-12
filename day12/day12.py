@@ -54,19 +54,19 @@ def rotate_way_point(current_way_point, rotates, rotate_dir):
 
 def part2(rules):
     current_way_point = {'N': 1, 'E': 10, 'S': 0, 'W': 0}
-    current_direction = {'N': 0, 'E': 0, 'S': 0, 'W': 0}
+    location = {'N': 0, 'E': 0, 'S': 0, 'W': 0}
 
     for direction, value in rules:
         if direction == 'F':
             for k, _ in current_way_point.items():
-                current_direction[k] += value * current_way_point[k]
+                location[k] += value * current_way_point[k]
         elif direction =='R':
             current_way_point = rotate_way_point(current_way_point, value//90, True)
         elif direction == 'L':
             current_way_point = rotate_way_point(current_way_point, value//90, False)
         else:
             current_way_point[direction] += value
-    return abs(current_direction['S'] - current_direction['N']) + abs(current_direction['E'] - current_direction['W'])
+    return abs(location['S'] - location['N']) + abs(location['E'] - location['W'])
 
 
 path = "day12/input.txt"
