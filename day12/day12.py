@@ -26,12 +26,10 @@ def part1(rules):
     for direction, value in rules:
         if direction == 'F':
             directions[current_direction] += value
-        elif direction =='R':
+        elif direction =='R' or direction =='L':
+            value = (value*-1, value) [direction == 'R']
             current_degrees = get_current_degrees(current_degrees, value)
             current_direction = turns[current_degrees] 
-        elif direction == 'L':
-            current_degrees = get_current_degrees(current_degrees, value*-1)
-            current_direction = turns[current_degrees]
         else:
             directions[direction] += value
     return abs(directions['S'] - directions['N']) + abs(directions['E'] - directions['W'])
