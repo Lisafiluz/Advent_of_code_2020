@@ -40,8 +40,6 @@ def rotate_way_point(current_way_point, rotates, rotate_dir):
             new_way_point['W'] = current_way_point['S']
             new_way_point['N'] = current_way_point['W']
             current_way_point = new_way_point.copy()
-
-
     else:  # To the left
        for _ in range(rotates):
             new_way_point['W'] = current_way_point['N']
@@ -75,5 +73,3 @@ rules = [(l[0], int(l[1:]))for l in file_data]
 
 print(part1(rules))
 print(part2(rules))
-
-
