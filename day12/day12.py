@@ -1,3 +1,6 @@
+import collections
+
+
 def get_file_data(path):
     with open(path, 'r') as file_handler:
         lines = file_handler.readlines()
@@ -35,15 +38,11 @@ def part1(rules):
 
 
 def rotate_way_point(current_way_point, rotates, rotate_dir):
-    new_way_point = {}
     directions = 'NESW'
-    for _ in range(rotates):
-        new_way_point[directions[1*rotate_dir]] = current_way_point[directions[0*rotate_dir]]
-        new_way_point[directions[2*rotate_dir]] = current_way_point[directions[1*rotate_dir]]
-        new_way_point[directions[3*rotate_dir]] = current_way_point[directions[2*rotate_dir]]
-        new_way_point[directions[0*rotate_dir]] = current_way_point[directions[3*rotate_dir]]
-        current_way_point = new_way_point.copy()
-    return new_way_point
+    current_way_point_list = [current_way_point[d] for d in directions]
+    new_way_point = collections.deque(current_way_point_list)
+    new_way_point.rotate(rotate_dir*rotates)
+    return {directions[i] : v for i, v in enumerate(new_way_point)}
 
 
 def part2(rules):
@@ -54,10 +53,9 @@ def part2(rules):
         if direction == 'F':
             for k, _ in current_way_point.items():
                 location[k] += value * current_way_point[k]
-        elif direction =='R':
-            current_way_point = rotate_way_point(current_way_point, rotates=value//90, rotate_dir=1)
-        elif direction == 'L':
-            current_way_point = rotate_way_point(current_way_point, rotates=value//90, rotate_dir=-1)
+        elif direction =='R' or direction == 'L':
+            rotate_dir = (-1, 1) [direction == 'R']
+            current_way_point = rotate_way_point(current_way_point, rotates=value//90, rotate_dir=rotate_dir)
         else:
             current_way_point[direction] += value
     return abs(location['S'] - location['N']) + abs(location['E'] - location['W'])
