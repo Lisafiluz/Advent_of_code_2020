@@ -29,7 +29,7 @@ def part1(rules):
         elif direction =='R' or direction =='L':
             value = (value*-1, value) [direction == 'R']
             current_degrees = get_current_degrees(current_degrees, value)
-            current_direction = turns[current_degrees] 
+            current_direction = turns[current_degrees]
         else:
             directions[direction] += value
     return abs(directions['S'] - directions['N']) + abs(directions['E'] - directions['W'])
