@@ -41,6 +41,7 @@ def part2(bus_ids, to_add):
             else:
                 index += 1
                 increament = number - previous_number
+                print(number)
                 count = 0               
             if is_valid(number, bus_ids, to_add):
                 return number
