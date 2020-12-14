@@ -75,7 +75,7 @@ def get_memory_part_2(file_data, combinations):
 
 
 
-path = "/Users/liluz/Python/Advent_Code_2020/day14/input.txt"
+path = "day14/input.txt"
 file_data = get_file_data(path)
 
 
