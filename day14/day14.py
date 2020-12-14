@@ -9,7 +9,7 @@ def get_file_data(path):
 
 
 def get_number_after_mask(number, mask):
-    number_b_str = str(bin(number))
+    number_b_str = str(bin(number))[2:]
     result = [m for m in mask]
     mask_index = -1
     for b_digit in number_b_str[-1::-1]:
@@ -18,7 +18,7 @@ def get_number_after_mask(number, mask):
         mask_index -= 1
     after_mask = ""
     for m in result:
-        if m == "X" or m =='b':
+        if m == "X":
             after_mask += '0'
         else:
             after_mask += m
