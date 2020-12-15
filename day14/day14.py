@@ -74,7 +74,6 @@ def get_memory_part_2(file_data, combinations):
     return memory
 
 
-
 path = "day14/input.txt"
 file_data = get_file_data(path)
 
