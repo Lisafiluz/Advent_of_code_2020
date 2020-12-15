@@ -95,10 +95,11 @@ class CoreInstructor:
         return False
 
 
-path = "day8/input.txt"
-file_data = get_file_data(path)
+if __name__ == "__main__":
+    path = "day8/input.txt"
+    file_data = get_file_data(path)
 
-core = CoreInstructor(file_data)
-print(core.get_acc_until_double_row())
-rows_to_check = core.get_rows_executing_until_double_row()
-print(core.get_acc_when_change_row())
+    core = CoreInstructor(file_data)
+    print(core.get_acc_until_double_row())
+    rows_to_check = core.get_rows_executing_until_double_row()
+    print(core.get_acc_when_change_row())

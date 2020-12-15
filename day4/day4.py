@@ -70,9 +70,10 @@ def get_valid_passports(passports):
     return count
 
 
-path = "day4/input.txt"
+if __name__ == "__main__":
+    path = "day4/input.txt"
 
-passports = get_pasports(path)
-valid = get_valid_passports(passports)
-print(valid)
+    passports = get_pasports(path)
+    valid = get_valid_passports(passports)
+    print(valid)
 

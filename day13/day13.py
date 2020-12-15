@@ -47,21 +47,21 @@ def part2(bus_ids, to_add):
                 return number
 
 
-path = "day13/input.txt"
-file_data = get_file_data(path)
+if __name__ == "__main__":
+    path = "day13/input.txt"
+    file_data = get_file_data(path)
 
-# part1
-arrived_in = int(file_data[0])
-bus_ids = [int(bus_id) for bus_id in file_data[1].split(',') if bus_id.isdigit()]
+    bus_ids = [int(bus_id) for bus_id in file_data[1].split(',') if bus_id.isdigit()]
+    
+    # part1
+    arrived_in = int(file_data[0])
+    print(part1(arrived_in, bus_ids))
 
-print(part1(arrived_in, bus_ids))
+    # part 2
+    buses_positions = [bus_id for bus_id in file_data[1].split(',')]
+    to_add = []
+    for i in range(len(buses_positions)):
+        if buses_positions[i] != 'x':
+            to_add.append(i)
 
-
-# part 2
-buses_positions = [bus_id for bus_id in file_data[1].split(',')]
-to_add = []
-for i in range(len(buses_positions)):
-    if buses_positions[i] != 'x':
-        to_add.append(i)
-
-print(part2(bus_ids, to_add))
+    print(part2(bus_ids, to_add))

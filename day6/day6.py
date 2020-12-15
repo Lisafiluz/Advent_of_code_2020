@@ -25,16 +25,17 @@ def get_sum_of_group(group_answers_list):
     return all_answers
 
 
-path = "day6/input.txt"
-file_data = get_file_data(path)
-group = []
-sum = 0
-for line in file_data:
-    if line != "":
-        group.append(line)
-    else:
-        sum += get_sum_of_group(group)
-        group = []
-sum += get_sum_of_group(group) # for the last group
+if __name__ == "__main__":
+    path = "day6/input.txt"
+    file_data = get_file_data(path)
+    group = []
+    sum = 0
+    for line in file_data:
+        if line != "":
+            group.append(line)
+        else:
+            sum += get_sum_of_group(group)
+            group = []
+    sum += get_sum_of_group(group) # for the last group
 
-print(sum)
+    print(sum)

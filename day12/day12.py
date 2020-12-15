@@ -59,9 +59,10 @@ def part2(rules):
     return abs(location['S'] - location['N']) + abs(location['E'] - location['W'])
 
 
-path = "day12/input.txt"
-file_data = get_file_data(path)
-rules = [(l[0], int(l[1:]))for l in file_data]
+if __name__ == "__main__":
+    path = "day12/input.txt"
+    file_data = get_file_data(path)
+    rules = [(l[0], int(l[1:]))for l in file_data]
 
-print(part1(rules))
-print(part2(rules))
+    print(part1(rules))
+    print(part2(rules))

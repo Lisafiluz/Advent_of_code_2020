@@ -40,11 +40,12 @@ def get_final_number(first_inp, turns):
     return current_number
 
 
-path = "day15/input.txt"
-file_data = get_file_data(path)
+if __name__ == "__main__":
+    path = "day15/input.txt"
+    file_data = get_file_data(path)
 
-# part 1
-print(get_final_number(file_data[0], 2020))
+    # part 1
+    print(get_final_number(file_data[0], 2020))
 
-# part 2
-print(get_final_number(file_data[0], 30000000))
+    # part 2
+    print(get_final_number(file_data[0], 30000000))

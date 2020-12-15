@@ -74,32 +74,31 @@ def get_memory_part_2(file_data, combinations):
     return memory
 
 
-path = "day14/input.txt"
-file_data = get_file_data(path)
+if __name__ == "__main__":
+    path = "day14/input.txt"
+    file_data = get_file_data(path)
 
+    # part 1
+    memory = {}
+    for line in file_data:
+        if line[:4] == "mask":
+            mask = line[7:]
+        else:
+            memory[int(line[4:line.index(']')])] = get_number_after_mask(int(line[line.index("=") + 2:]), mask)
+    print(sum(memory.values()))
 
-# part 1
-memory = {}
-for line in file_data:
-    if line[:4] == "mask":
-        mask = line[7:]
-    else:
-        memory[int(line[4:line.index(']')])] = get_number_after_mask(int(line[line.index("=") + 2:]), mask)
-print(sum(memory.values()))
-
-
-# part 2
-max_x_appears = 0
-for line in file_data:
-    if line[:4] == "mask":
-        x_appear = 0
-        for a in line[7:]:
-            if a =='X':
-                x_appear += 1
-        if x_appear > max_x_appears:
-            max_x_appears = x_appear
-        x_appear = 0
-combinations = []
-for i in range(2, max_x_appears + 1):
-    combinations.append(list(itertools.product((0,1), repeat=i)))
-print(sum(get_memory_part_2(file_data, combinations).values()))
+    # part 2
+    max_x_appears = 0
+    for line in file_data:
+        if line[:4] == "mask":
+            x_appear = 0
+            for a in line[7:]:
+                if a =='X':
+                    x_appear += 1
+            if x_appear > max_x_appears:
+                max_x_appears = x_appear
+            x_appear = 0
+    combinations = []
+    for i in range(2, max_x_appears + 1):
+        combinations.append(list(itertools.product((0,1), repeat=i)))
+    print(sum(get_memory_part_2(file_data, combinations).values()))

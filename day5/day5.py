@@ -39,18 +39,18 @@ def get_column_id(end):
     return column_max
 
 
+if __name__ == "__main__":
+    path = "day5/input.txt"
+    file_data = get_file_data(path)
 
-path = "day5/input.txt"
-file_data = get_file_data(path)
+    max_id = 0
+    set1 = []
+    for card in file_data:
+        seat_id = get_row_id(card[0:7]) * 8 + get_column_id(card[7:])
+        set1.append(seat_id)
+        if seat_id > max_id:
+            max_id = seat_id
 
-max_id = 0
-set1 = []
-for card in file_data:
-    seat_id = get_row_id(card[0:7]) * 8 + get_column_id(card[7:])
-    set1.append(seat_id)
-    if seat_id > max_id:
-        max_id = seat_id
-
-set1 = set(set1)
-set2 = set([i for i in range(min(set1), max(set1))])
-print(set2.difference(set1))
+    set1 = set(set1)
+    set2 = set([i for i in range(min(set1), max(set1))])
+    print(set2.difference(set1))

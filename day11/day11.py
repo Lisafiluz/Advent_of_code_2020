@@ -110,15 +110,15 @@ def get_num_of_empty_seats(file_data, is_need_to_be_occupied_func, is_need_to_be
                 counter += 1
     return counter
 
-path = "day11/input.txt"
-file_data = get_file_data(path)
 
-# part 1
-print(get_num_of_empty_seats(file_data,
-                            is_need_to_be_occupied_func=is_need_to_be_occupied,
-                            is_need_to_be_empty_func=is_need_to_be_empty))
-
-# part 2
-print(get_num_of_empty_seats(file_data,
-                            is_need_to_be_occupied_func=is_need_to_be_occupied2,
-                            is_need_to_be_empty_func=is_need_to_be_empty2))
+if __name__ == "__main__":
+    path = "day11/input.txt"
+    file_data = get_file_data(path)
+    # part 1
+    print(get_num_of_empty_seats(file_data,
+                                is_need_to_be_occupied_func=is_need_to_be_occupied,
+                                is_need_to_be_empty_func=is_need_to_be_empty))
+    # part 2
+    print(get_num_of_empty_seats(file_data,
+                                is_need_to_be_occupied_func=is_need_to_be_occupied2,
+                                is_need_to_be_empty_func=is_need_to_be_empty2))

@@ -19,12 +19,12 @@ def get_encounter_trees(map, steps_right, steps_below):
             trees += 1
     return trees
 
-
-path = "day3/input.txt"
-map = get_map(path)
-trees1 = get_encounter_trees(map, 1, 1)
-trees2 = get_encounter_trees(map, 3, 1)
-trees3 = get_encounter_trees(map, 5, 1)
-trees4 = get_encounter_trees(map, 7, 1)
-trees5 = get_encounter_trees(map, 1, 2)
-print(trees1 * trees2 * trees3 * trees4 * trees5)
+if __name__ == "__main__":
+    path = "day3/input.txt"
+    map = get_map(path)
+    trees1 = get_encounter_trees(map, 1, 1)
+    trees2 = get_encounter_trees(map, 3, 1)
+    trees3 = get_encounter_trees(map, 5, 1)
+    trees4 = get_encounter_trees(map, 7, 1)
+    trees5 = get_encounter_trees(map, 1, 2)
+    print(trees1 * trees2 * trees3 * trees4 * trees5)

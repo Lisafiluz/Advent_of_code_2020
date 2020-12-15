@@ -34,7 +34,6 @@ def part1(file_data):
     return one_jolts_differences * three_jolts_differences
 
 
-
 def is_valid_sequence(sequence):
     for i in range(len(sequence) - 1):
         current = sequence[i]
@@ -44,58 +43,17 @@ def is_valid_sequence(sequence):
     return True
 
 
+if __name__ == "__main__":
+    path = "day10/input.txt"
+    file_data = get_file_data(path)
+    # main_sorted_adapters = get_adapters_sorted(file_data)
+    print(part1(file_data))
 
-def get_options_from_sequence(sequence):
-    
-    if len(sequence) < 3:
-        return 0
-    else:
-        i = 1
-        j = 1
-        options_counter = 0
-        while i < len(sequence) - 1:
-            if is_valid_sequence(sequence[0:i] + sequence[j:]):
-                if main_sorted_adapters  == sequence:
-                    options_counter += 1
-                print(sequence)
-                options_counter += 1
-                options_counter += get_options_from_sequence(sequence[0:i]) + get_options_from_sequence(sequence[j:])
-            j += 1
-            if j >= len(sequence):
-                i += 1
-                j = i + 1
-        return options_counter
-
-def part2(adapters_sorted):
-    options = 1
-    sequence = [0]
-    current_adapter = 0
-    for i in range(len(adapters_sorted)):
-        if adapters_sorted[i] - current_adapter < 3:
-            sequence.append(adapters_sorted[i])
-            current_adapter = adapters_sorted[i]
-        else:
-            options *= get_options_from_sequence(sequence)
-            print(sequence)
-            sequence = [adapters_sorted[i]]
-            current_adapter = adapters_sorted[i]
-
-
-path = "day10/input.txt"
-file_data = get_file_data(path)
-# main_sorted_adapters = get_adapters_sorted(file_data)
-print(part1(file_data))
-
-# part 2
-# The solution:
-# The ordered input contains small sequences for example: 
-# [1, 2, 3, 6, 9, 10, 11] => 1,2,3 | 6 | 9,10,11
-# From each sequence I calculate the possible options to order that sequence and save the first number and the last number
-# In the example above => from 9,10,11 I can get 2 possible orders: 9,10,11 | 9,11
-# Than I multiply the possible options for each sequence and the result is the answer
-# Note that the first sequence starts with 0 because 0 is mandatory
-
-# part 2 in code:
-main_sorted_adapters = [1,2,3,4,5]
-# print(part2(get_adapters_sorted(file_data)))
-print(get_options_from_sequence([1,2,3,4,5]))
+    # part 2
+    # The solution:
+    # The ordered input contains small sequences for example: 
+    # [1, 2, 3, 6, 9, 10, 11] => 1,2,3 | 6 | 9,10,11
+    # From each sequence I calculate the possible options to order that sequence and save the first number and the last number
+    # In the example above => from 9,10,11 I can get 2 possible orders: 9,10,11 | 9,11
+    # Than I multiply the possible options for each sequence and the result is the answer
+    # Note that the first sequence starts with 0 because 0 is mandatory

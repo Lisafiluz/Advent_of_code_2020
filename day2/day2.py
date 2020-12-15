@@ -21,15 +21,17 @@ def is_valid_password_part2(line):
         return True
     return False
 
-with open('day2/input.txt', 'r') as file_handler:
-    lines = file_handler.readlines()
 
-valid_passwords = 0
-valid_passwords_part2 = 0
-for line in lines:
-    if is_valid_password(line):
-        valid_passwords += 1
-    if is_valid_password_part2(line):
-        valid_passwords_part2 += 1
+if __name__ == "__main__":
+    with open('day2/input.txt', 'r') as file_handler:
+        lines = file_handler.readlines()
 
-print(valid_passwords_part2)
+    valid_passwords = 0
+    valid_passwords_part2 = 0
+    for line in lines:
+        if is_valid_password(line):
+            valid_passwords += 1
+        if is_valid_password_part2(line):
+            valid_passwords_part2 += 1
+
+    print(valid_passwords_part2)

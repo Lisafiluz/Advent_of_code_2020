@@ -28,22 +28,23 @@ def get_contiguos_range(number, file_data):
             j += 1
     return False
 
-path = "day9/input.txt"
-file_data = get_file_data(path)
+
+if if __name__ == "__main__":
+    path = "day9/input.txt"
+    file_data = get_file_data(path)
+
+    preamble_length = 25
+    preamble = file_data[:preamble_length]
+    other_numbers = file_data[preamble_length:]
+    weak_num = 0
+
+    for number in other_numbers:
+        if not is_valid(number, preamble):
+            weak_num = number
+            break
+        preamble = preamble[1:] + [number]
 
 
-preamble_length = 25
-preamble = file_data[:preamble_length]
-other_numbers = file_data[preamble_length:]
-weak_num = 0
-
-for number in other_numbers:
-    if not is_valid(number, preamble):
-        weak_num = number
-        break
-    preamble = preamble[1:] + [number]
-
-
-contiguous_range = get_contiguos_range(weak_num, file_data)
-contiguous_range_int = [int(number) for number in contiguous_range]
-print(min(contiguous_range_int)+max(contiguous_range_int))
+    contiguous_range = get_contiguos_range(weak_num, file_data)
+    contiguous_range_int = [int(number) for number in contiguous_range]
+    print(min(contiguous_range_int)+max(contiguous_range_int))
