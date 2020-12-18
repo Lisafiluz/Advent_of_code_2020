@@ -25,12 +25,12 @@ def get_expression(line, plus_before_multi):
             ex.append(num_or_op[:num_or_op.index(')')])
             if len(ex) > 3:
                 r = get_expression(" ".join(ex), plus_before_multi)
-                return (line.replace(" ".join(ex), r[0], 1), r[1])
+                return (line.replace(" ".join(ex), r[0], 1),
+                        r[1])
             second_num = num_or_op[:num_or_op.index(')')]
             result = get_result(first_num, op, second_num)
-            return (line.replace(
-                        "(" + first_num + " " + op + " " + second_num + ")",
-                        str(result), 1),
+            return (line.replace("(" + first_num + " " + op + " " + second_num + ")",
+                                str(result), 1),
                     result)
         else:
             if len(ex) > 0:
@@ -43,7 +43,7 @@ def get_expression(line, plus_before_multi):
                 if num_or_op == '+':
                     result = get_result(line_list[index-1], num_or_op, line_list[index+1])
                     return (line.replace(line_list[index-1] + " " + num_or_op + " " + line_list[index+1], str(result), 1),
-                    result)
+                            result)
                 index += 1 
         first_num = line_list[0]
         op = line_list[1]
