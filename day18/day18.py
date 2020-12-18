@@ -15,7 +15,7 @@ def get_expression(line, plus_before_multi):
     line_list = line.split(' ')
     for num_or_op in line_list:
         if "(" in num_or_op:
-            if len(ex) > 0:
+            if len(ex) > 0:  # For isolatolating only the inner parentheses
                 ex = []
                 ex.append(num_or_op[num_or_op.rindex('(') + 1:])
             else:
@@ -23,7 +23,7 @@ def get_expression(line, plus_before_multi):
             first_num = num_or_op[num_or_op.rindex('(') + 1:]
         elif ")" in num_or_op:
             ex.append(num_or_op[:num_or_op.index(')')])
-            if len(ex) > 3:
+            if len(ex) > 3:  # We got expression that includes more then one expressions inside
                 r = get_expression(" ".join(ex), plus_before_multi)
                 return (line.replace(" ".join(ex), r[0], 1),
                         r[1])
@@ -36,7 +36,7 @@ def get_expression(line, plus_before_multi):
             if len(ex) > 0:
                 ex.append(num_or_op)
             op = num_or_op
-    if not first_num:
+    if not first_num:  # The expression doesn't contain '('
         if plus_before_multi:
             index = 0
             for num_or_op in line_list:
@@ -56,7 +56,7 @@ def get_expression(line, plus_before_multi):
 def get_resut_of_line(line, plus_before_multi):
     while True:
         line, result = get_expression(line, plus_before_multi)
-        if line.find(" ") == -1:
+        if line.find(" ") == -1:  # The result of the line is found, for ex: line =  "237", result = 237
             return result
 
 
